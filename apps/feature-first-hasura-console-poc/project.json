@@ -1,0 +1,74 @@
+{
+  "name": "feature-first-hasura-console-poc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/feature-first-hasura-console-poc/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/feature-first-hasura-console-poc"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "feature-first-hasura-console-poc:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "feature-first-hasura-console-poc:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "feature-first-hasura-console-poc:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "feature-first-hasura-console-poc:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "feature-first-hasura-console-poc:build:development"
+        },
+        "production": {
+          "buildTarget": "feature-first-hasura-console-poc:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/feature-first-hasura-console-poc"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/feature-first-hasura-console-poc"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/feature-first-hasura-console-poc/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
