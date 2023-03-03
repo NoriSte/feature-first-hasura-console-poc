@@ -30,6 +30,7 @@
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
     "jsdom": "~20.0.3",
+    "msw": "^1.1.0",
     "nx": "15.7.2",
     "prettier": "^2.6.2",
     "react-test-renderer": "18.2.0",
@@ -41,9 +42,15 @@
     "vitest": "^0.25.8"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.24.10",
+    "deepmerge": "^4.3.0",
+    "immer": "^9.0.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tslib": "^2.3.0",
     "zustand": "^4.3.3"
+  },
+  "msw": {
+    "workerDirectory": "apps/feature-first-hasura-console-poc/public"
   }
 }
