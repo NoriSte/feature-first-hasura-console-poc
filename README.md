@@ -20,6 +20,7 @@
 - [Three levels of abstraction](#three-levels-of-abstraction)
 - [FAQ](#faq)
 - [How can I play with the demo?](#how-can-i-play-with-the-demo)
+- [5-min intro](#5-min-intro)
 
 
 
@@ -64,7 +65,7 @@ Essentially, to ease the developer life dealing with the above mess. This is pos
 
 1. Centralizing manage all the data/info/properties/vars that impact what the Console shows
 2. Allow this centralized management to scale for future needs
-3. Hide all the ~mess~ **implementation details** of dealing with the `window.__env`, pricing plans, entitlements, etc.
+3. Hide all the ~~mess~~ **implementation details** of dealing with the `window.__env`, pricing plans, entitlements, etc.
 
 </details>
 
@@ -174,7 +175,7 @@ function Prometheus() {
 }
 ```
 
-<details>
+<details id="why-disabled-diff-free">
   <summary><i>(here are the files diff-free)</i></summary>
 
 ```tsx
@@ -263,7 +264,7 @@ function Prometheus() {
 }
 ```
 
-<details>
+<details id="current-plan-diff-free">
   <summary><i>(here are the files diff-free)</i></summary>
 
 ```tsx
@@ -431,3 +432,28 @@ From the high-level consumers to the low-level functions:
 ![POC screenshot](./screenshot.png)
 
 Run `nx serve feature-first-hasura-console-poc` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+
+
+<details id="5-min-intro">
+  <summary><b>5-min intro</b></summary>
+
+This is mostly for who needs to present the POC.
+
+---
+The mess with the env vars and asynchronous source of data that impacts showing a feature or not is high and it's going to increase.
+
+We (the frontenders of the platform team) were thinking about it and we followed Rishi's proposal for some feature-first APIs that ease showing/hiding a feature (and why if needed) and also to take the ownership of it, removing the burden from the feature teams.
+
+We then created a POC to share the API proposal with the ones who requested us more info about the problem and/or that proposed some solutions.
+
+Now we ned to gather feedback to quickly validate the POC and iterate on the following steps.
+
+This is the proposal
+1. [A React hook and a React component for the basic show/hide a feature](#-as-a-developer-i-want-to-show-a-feature-only-if-its-enabled)
+2. [Either of them can be used to know why a feature is not enabled](#why-disabled-diff-free)
+3. [Either of them can be used to know the current info of the Hasura plan](#current-plan-diff-free)
+
+Do you have feedback?
+
+
+</details>
