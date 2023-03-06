@@ -174,6 +174,47 @@ function Prometheus() {
 }
 ```
 
+<details>
+  <summary><i>(here are the files diff-free)</i></summary>
+
+```tsx
+// File: features/Prometheus/Prometheus.tsx
+
+// React component version
+function Prometheus() {
+  return (
+    <IsFeatureEnabled
+      feature="prometheus"
+      ifDisabled={(reasons: { doNotMatch }) => {
+        if (doNotMatch.eeLite) {
+          return <div>Prometheus is enabled for EE Lite only</div>
+        }
+      }}
+    >
+      <div>Prometheus</div>
+    </IsFeatureEnabled>
+  );
+}
+
+// React hook version
+function Prometheus() {
+  const {
+    status,
+    reasons: { doNotMatch }
+  } = useIsFeatureEnabled('prometheus');
+
+  if(status === 'disabled') {
+   if (doNotMatch.eeLite) {
+     return <div>Prometheus is enabled for EE Lite only</div>
+   }
+  }
+
+  return <div>Prometheus</div>
+}
+```
+
+</details>
+
 And also, I want to know **the current type the Console is running**.
 
 ```diff
@@ -221,6 +262,56 @@ function Prometheus() {
   return <div>Prometheus</div>
 }
 ```
+
+<details>
+  <summary><i>(here are the files diff-free)</i></summary>
+
+```tsx
+// File: features/Prometheus/Prometheus.tsx
+
+// React component version
+function Prometheus() {
+  return (
+    <IsFeatureEnabled
+      feature="prometheus"
+      ifDisabled={(reasons: { doNotMatch }, current: { hasuraPlan }) => {
+        if (doNotMatch.eeLite) {
+          if(hasuraPlan.type === 'ce') {
+            return <div>Try EE Lite and give all the paid feature a try for free!</div>
+          }
+
+          return <div>Prometheus is enabled for EE Lite only</div>
+        }
+      }}
+    >
+      <div>Prometheus</div>
+    </IsFeatureEnabled>
+  );
+}
+
+// React hook version
+function Prometheus() {
+  const {
+    status,
+    reasons: { doNotMatch }
+    current: { hasuraPlan }
+  } = useIsFeatureEnabled('prometheus');
+
+  if(status === 'disabled') {
+    if (doNotMatch.eeLite) {
+      if(hasuraPlan.type === 'ce') {
+        return <div>Try EE Lite and give all the paid feature a try for free!</div>
+      }
+
+      return <div>Prometheus is enabled for EE Lite only</div>
+    }
+  }
+
+  return <div>Prometheus</div>
+}
+```
+
+</details>
 
 ### 🙋 As a developer, I want to **refresh some data related to the Hasura Plan**
 
