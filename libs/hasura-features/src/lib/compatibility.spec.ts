@@ -1,9 +1,24 @@
 import produce from 'immer';
 import { useConsoleInfoStore } from './store';
-import {
-  checkFeatureCompatibility,
-  defaultCompatibilityObject,
-} from './compatibility';
+
+import type { CompatibilityObject } from './compatibility';
+import { checkFeatureCompatibility } from './compatibility';
+
+export const defaultCompatibilityObject: CompatibilityObject = {
+  ce: 'disabled',
+  cliMode: 'cliOrServer',
+
+  cloud: 'disabled',
+  selfHostedCloud: 'disabled',
+  luxEntitlements: {
+    NeonDatabaseIntegration: 'notRequired',
+    DatadogIntegration: 'notRequired',
+  },
+
+  // While the other checks act as an OR operator, the eeLiteLicense acts as an AND operator to the 'eeLite' check
+  eeLite: 'disabled',
+  eeLiteLicense: 'notRequired',
+};
 
 describe('isFeatureEnabled', () => {
   afterEach(() => {

@@ -15,7 +15,7 @@ type RequiredOrNot = 'required' | 'notRequired';
 type CliModeCompatibility = 'cliOnly' | 'serverOnly' | 'cliOrServer';
 
 // Everything at the root is interpreted like an OR operator: {ce:'enabled', eeLiteWithLicense:'enabled'} means "enabled if ce OR eeLiteWithLicense".
-// ALl the properties are required on purpose: because it's too easy to forget to add a check, especially when we add new conditions.
+// All the properties are required on purpose: because it's too easy to forget to add a check, especially when we add new conditions.
 export type CompatibilityObject = {
   ce: EnabledOrNot;
   cliMode: CliModeCompatibility;
@@ -32,23 +32,6 @@ export type CompatibilityObject = {
   // While the other checks act as an OR operator, the eeLiteLicense acts as an AND operator to the 'eeLite' check
   eeLite: EnabledOrNot;
   eeLiteLicense: RequiredOrNot;
-};
-
-// A utility object mostly used for testing
-export const defaultCompatibilityObject: CompatibilityObject = {
-  ce: 'disabled',
-  cliMode: 'cliOrServer',
-
-  cloud: 'disabled',
-  selfHostedCloud: 'disabled',
-  luxEntitlements: {
-    NeonDatabaseIntegration: 'notRequired',
-    DatadogIntegration: 'notRequired',
-  },
-
-  // While the other checks act as an OR operator, the eeLiteLicense acts as an AND operator to the 'eeLite' check
-  eeLite: 'disabled',
-  eeLiteLicense: 'notRequired',
 };
 
 export type MatchingReason =

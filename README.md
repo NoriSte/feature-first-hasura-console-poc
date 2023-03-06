@@ -25,7 +25,7 @@
 <details id="context">
   <summary><b>Context</b></summary>
 
-1. The Hasura Console can be loaded in six different "types", and two different "modes" (12 cases to manage). This is messy represented by the `window.__env` object the Hasura finds when loads.
+1. The Hasura Console can be loaded in six different "types", and two different "modes" (12 cases to manage). This is messy represented by the `window.__env` object the Hasura Console finds when loads.
 2. When the Console is launched by the CLI server, we must care about [the old CLI server and the new one](https://github.com/hasura/graphql-engine-mono/pull/7256#discussion_r1071239279) (the cases to manage grows to 18).
 3. There are additional things to consider that are retrieved dynamically
    1. Lux entitlements
@@ -35,7 +35,7 @@
 
 *(here is a [good summary by @beaussan](https://hasurahq.slack.com/archives/C0423EHN686/p1676297462152259?thread_ts=1676291643.033329&cid=C0423EHN686) about the current situation).*
 
-All of the abovementioned points concur in showing some features or not, in trying to upsell Hasura to the customers, etc.
+All of the above-mentioned points concur in showing some features or not, in trying to upsell Hasura to the customers, etc.
 </details>
 
 <details id="the-problem">
@@ -64,26 +64,26 @@ Essentially, to ease the developer life dealing with the above mess. This is pos
 2. Allow this centralized management to scale for future needs
 3. Hide all the ~mess~ **implementation details** of dealing with the `window.__env`, pricing plans, entitlements, etc.
 
-Steps and scope of this POC
 </details>
 
 
 
 ## What to expect from this POC
 
+
+This POC **includes**:
+- a proposal of the TS APIs needed to hide/show a feature
+- a proposal to identify the reasons why a feature is enabled/disabled
+- a proposal to hide the previous APIs with a dedicated feature-only API
+- some simplified version of the use cases the Console must deal with
+- some mocks and utils to simulate the Console running in different modes and see the fake features reacting to the changes
+
 This POC **does not include**:
 - battle-tested code
 - Storybook utilities
 - definitive libraries and file system
 - some thorough real use cases the Console must deal with
-
-This POC **includes**:
-- a high-level proposal of the TS APIs needed to hide/show a feature
-- a high-level proposal to identify the reasons why a feature is enabled/disabled
-- a high-level proposal to hide the previous APIs with a dedicated feature-only API
-- some simplified version of the use cases the Console must deal with
-- some mocks and utils to simulate the Console running in different modes and see the fake features reacting to the changes
-
+-
 Please remember that the API design and names are open to be discussed!
 
 ## Basic use cases
@@ -294,7 +294,7 @@ React APIs includes "reactivity" by definition. Vanilla JavaScript APIs cannot o
 
 **How will I be able to access `window.__env` if the goal of this POC is also to stop accessing it?**
 
-We will maybe expose a `useEnvVars_UNSECURE` hook and we will look at whe/where is needed.
+We will maybe expose a `useEnvVars_UNSECURE` hook and we will look at when/where is needed.
 
 **I do not see anything about pricing plan, authentication, etc. in this POC, why?**
 
