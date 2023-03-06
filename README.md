@@ -5,6 +5,7 @@
 - [The problem](#the-problem)
 - [How the problem is tackled right now](#how-the-problem-is-tackled-right-now)
 - [What's the Platform team goal?](#whats-the-platform-team-goal)
+- [Next steps and the feedback loop](#next-steps)
 - [What to expect from this POC](#what-to-expect-from-this-poc)
 - [Basic use cases](#basic-use-cases)
   - [🙋 As a developer, I want to **show a feature only if it's enabled**](#-as-a-developer-i-want-to-show-a-feature-only-if-its-enabled)
@@ -16,6 +17,7 @@
   - [🙋 As a developer, I want to **add one more async source of Hasura Plan info**](#-as-a-developer-i-want-to-add-one-more-async-source-of-hasura-plan-info)
   - [🙋 As a developer, I want to **add one more Console type**](#-as-a-developer-i-want-to-add-one-more-console-type)
   - [🙋 As a developer, I want to manage the **dynamic route** for my feature](#-as-a-developer-i-want-to-manage-the-dynamic-route-for-my-feature)
+- [Three levels of abstraction](#three-levels-of-abstraction)
 - [FAQ](#faq)
 - [How can I play with the demo?](#how-can-i-play-with-the-demo)
 
@@ -63,6 +65,24 @@ Essentially, to ease the developer life dealing with the above mess. This is pos
 1. Centralizing manage all the data/info/properties/vars that impact what the Console shows
 2. Allow this centralized management to scale for future needs
 3. Hide all the ~mess~ **implementation details** of dealing with the `window.__env`, pricing plans, entitlements, etc.
+
+</details>
+
+
+<details id="next-steps">
+  <summary><b>Next steps and the feedback loop</b></summary>
+
+The next steps are all about the fastest possible feedback loop.
+
+- ✅ Implementing the POC
+- 🚧 Gathering feedback from the ones who mostly requested it
+- ⏳ Adjusting the APIs with the gathered feedback
+- ⏳ Implementing a basic version in the Console to manage the EE Lite/EE Trials cases
+- ⏳ Gathering feedback
+- ⏳ Widening the APIs to the Cloud entitlements cases
+- ⏳ Gathering feedback
+- ⏳ Widening the APIs to the rest of the cases (prioritizing them)
+
 
 </details>
 
@@ -271,8 +291,11 @@ A personal opinion: we should not have dynamic routes at all. Our customers know
 3. Are the customers in Cloud? Let's tell them "Go to the Cloud dashboard and set everything Prometheus"
 
 
+## Three levels of abstraction
 
-
+1. The `useIsFeatureEnabled`/`<IsFeatureEnabled />` APIs: used maybe 95% of the times
+2. The `features.ts` module: used maybe 5% of the times, every time we need to add a new feature or get an existing feature controlled by the `useIsFeatureEnabled`/`<IsFeatureEnabled />` APIs
+3. The `compatibility.ts`/`store.ts` modules: used maybe 1% of the times, only when we need to add one more async source Hasura plan info
 
 ## FAQ
 
