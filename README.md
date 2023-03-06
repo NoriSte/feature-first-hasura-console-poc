@@ -444,6 +444,12 @@ The mess with the env vars and asynchronous source of data that impacts showing 
 
 We (the frontenders of the platform team) thought about it, and we followed Rishi's proposal for some feature-first APIs that ease showing/hiding a feature (and why if needed) and took ownership of it, removing the burden from the feature teams.
 
+More:
+1. We also want to deal with the "business names" of the things vs the code names of them
+2. We expose React-only APIs because the Hasura plan details can change during the app life
+3. We want to ease adding new features
+4. We want to create a centralized loader system for whatever Hasura plan (EE Lite license, Lux entitlements, Cloud pricing plans, etc.)
+
 We then created a POC to share the API proposal with the ones who requested us more info about the problem and/or proposed some solutions.
 
 We must gather feedback to validate the POC and quickly iterate on the following steps.
@@ -452,6 +458,7 @@ This is the proposal
 1. [A React hook and a React component for the basic show/hide a feature](#-as-a-developer-i-want-to-show-a-feature-only-if-its-enabled)
 2. [Either of them can be used to know why a feature is not enabled](#why-disabled-diff-free)
 3. [Either of them can be used to know the current info of the Hasura plan](#current-plan-diff-free)
+4. [Add a new feature](#-as-a-developer-i-want-to-add-one-feature-to-the-catalogue-of-features-managed-by-useisfeatureenabled-neon-for-instance)
 
 Do you have feedback?
 
