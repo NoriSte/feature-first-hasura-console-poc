@@ -440,13 +440,13 @@ Run `nx serve feature-first-hasura-console-poc` for a dev server. Navigate to ht
 This is mostly for who needs to present the POC.
 
 ---
-The mess with the env vars and asynchronous source of data that impacts showing a feature or not is high and it's going to increase.
+The mess with the env vars and asynchronous source of data that impacts showing a feature or not is high, and it will increase.
 
-We (the frontenders of the platform team) were thinking about it and we followed Rishi's proposal for some feature-first APIs that ease showing/hiding a feature (and why if needed) and also to take the ownership of it, removing the burden from the feature teams.
+We (the frontenders of the platform team) thought about it, and we followed Rishi's proposal for some feature-first APIs that ease showing/hiding a feature (and why if needed) and took ownership of it, removing the burden from the feature teams.
 
-We then created a POC to share the API proposal with the ones who requested us more info about the problem and/or that proposed some solutions.
+We then created a POC to share the API proposal with the ones who requested us more info about the problem and/or proposed some solutions.
 
-Now we ned to gather feedback to quickly validate the POC and iterate on the following steps.
+We must gather feedback to validate the POC and quickly iterate on the following steps.
 
 This is the proposal
 1. [A React hook and a React component for the basic show/hide a feature](#-as-a-developer-i-want-to-show-a-feature-only-if-its-enabled)
