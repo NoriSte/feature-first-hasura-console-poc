@@ -446,13 +446,13 @@ Getting all the properties explicit enforces managing them also when we add more
 
 The current APIs are temporary but this is a good point to fix in the final implementation.
 
-(by @vijayprasanna13) **What about vanilla JS APIs?**
-
-See the above "I see Rect APIs, but I do not see pure JavaScript APIs, why?" FAQ.
-
 (by @lucarestagno) **What about feature flags?**
 
 They will be managed too in the final implementation.
+
+(by @beaussan, @vijayprasanna13) **The `cloud` property of the compatibility object should not be separated from the Lux entitlements because they are strictly coupled**
+
+Indeed, I will change the final implementation.
 
 
 ## How can I play with the demo?
