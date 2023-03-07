@@ -426,6 +426,34 @@ From the high-level consumers to the low-level functions:
 5. [compatibility.spec.ts](libs/hasura-features/src/lib/compatibility.spec.ts): allows to simulate all the different case managed by `checkFeatureCompatibility`, the function at the core of `useIsFeatureEnabled`.
 
 
+## Feedback
+
+During the first round of presentations, we gathered the following feedback:
+
+(by @mattheweric, @vijayprasanna13, @wawhal) **What about getting the APIs accepting an array of features instead of just one?**
+
+We wil evaluate if the feature is really needed because @beaussan prepared some [TypeScript magics](https://www.typescriptlang.org/play?#code/PTAEFpK6dv4TAUCUBhA8gWQAoEEAVASQCEiAZIggTRTEQcaeiSQBcBPABwFNQcATjzZsAlgDMOAHgIA+UAF5QAbyShQAbQDSoUQDtQAax4cA9uNAEAugC5L2q6B4APNjz0ATAM6hTAIwArHgBjNlAAfn4hEQlpAgd5O3itKwBuJABfUAAyFQzWTl5QAFE9AEM-ABseDwwBADlTMKUAIncK6o8W0AAfUBaPUS8Ompb0pBcuUwEwwr40UwBbLjKxP1FK0U4MQJDmlTVQYJ47UpHahqb09UqAV2dSsTZqxfc2LztVdXV6nlM9AAiqwqZS8PCIejcAHMBKtRP9TuUqjU6o02NdQBl0liCtx5ksVmsNlsOAAlHheW6VNhaExeGROVzuby+XaheRKL6aHT6IwmcyWWz2FKMtyeHxnZEXNGHdSRZKOFxilltJGdFqy76RLSa9R2PQ8ABuPAEmqSDlFzJ8-iCoU12rNoANxoE2I0xjMFms4zmlgpbAAzIp0AS4etNpxyZTqbSOPSuahvqAAHrhQ4euyq85jQ56JqZwbDKU59RNAAWJs+oC8bFWtw+-XaxdS1aWwjL+ihdgATJjsbJxpNprM8SHlmHiZGKVS2FIFuO2DtbWElVbWcuOQd1NoTLoDPPCaJwySozPY-SD6sl3tZELL4u2WwdxxFUzxY21aN7aA-KZTNUyj0R172vUJn1fZVrUfb97yPScyWnak51DB9l3A2RHWdE0MVQcI8MyH1RwIf0AEZg0EYQxEkZCFzgiMEOjWcEzAb5U0OY5MybdUMR4E5+kLbMMTuB5IS2F43gbZRQF+f4gVrPxQXBSEeBhOEEX4oZsz7TJZAHVhgn+GtQCINxFiSUjgy5DjQDYARbh4AAaQ5hMeMSeFeSFJOkv5AWBBSwQhaFYTEdTxDKSowUxTJWCHGZQHEW49FCeEDGCCtgkMAAxHg6yEWDj04KRDkwXBCFICgqGoAB9DASAAKWKNACEtd98vg0C2CQWQAAp2JQuiSQ6uwSvwYgyEoGgavqxqCCQABKYb+oKhiZznbBRvKibqtqhqmvkKzDLCIRGMW2jltPJCRrK8bKqm3a5EsnFDgkUBuoMs72sfAA6Y5FAUVouNGOat2+F7uqwVYyy+2FPCWbrgfkAAGL6AFZgeOmcfr4JRbPsjF8nUMHNXew9lo6r6XNE553Ikr6ZN8+TFMClTgpSv6Ac-LpDmBrlCYscHIehwCPDhhHQGRtHdVADHqQp+5XOpjz3ks7zZL8pnlNUkK9DsXG+BxdR8kOaJbgEAwZfRaK6AgZhbbt5hrftp3ndgR2Xfdp2kAMvQjItsilDSkIspythTZ4Nr6O6qy+KzYsnJueWqfEzzPk1em5JBALNdZ9SBk0uPQFQKQPbgUAACoy8ODInIyObCKKclQ7Ni62H9qJKNiKQ5gFP2MPURN1DY63AFBySwAGVqzLUwqQ8UAymCY4uDYOwvH0X6AHJjnX0AAHdQVAdfAY8deHJsitpcQsIvCnmejn+WteTYc-N54beuAEUxeBmDgkDBv2sZ5ocEA0VUCABlycek9p6VFnk-D+O8V5rz4OvSmTxk7vDpj5DO-klJBTUnobee8fDrwElKE+Z8+AW0gbfPMYRvYPwME-JBKC3JKy8BgtWjMs64O1m-D+X9OC-35v-Zhitabp3VlwlmeDAH9zAMXZg5dK6yKtqgEuaimBu3UVouAmjtF6MgF7Q6F9GK9gDulYOuVw5LXglHdiMcSHqlPkXEuiiK7OUTqgmmKcQY-EwRInBUjtacU5i0eOmIa511xA3YQps9At1Me3GI1Fu4WAtt2PuhcWKDzTNbcBBAJ7XygTAsscCEFJSQVvXe+9iH506GQxhxiZxUOgU6Jod9IRlEfs-Sp79P4mgEX-S+3YAEg2cR7VxSjMkqLAKPfJzTZ7z0XsvasiCD4iLQWw8RnCAlaxSgQ6pJpOb1PPpQwpt86GdIYc-dZXj0FbMzjsnO+DQC9P4T-QZJi5YiU8aw9hDMHnM12f8GRUyjaqP0RC3REKtFQuhWowxPsjqXyDGYoO2VLERxJLY9Q1lY6OPcd8lhElU5JnudgwFTzgnZjCdXTIkT2CjkbrEluKLElUWkCkxp1IAwZIHimHJqBZkFJvi0xZPAl5lI3pUwhB8j7HIoZfeZ7T6HkIPj0vh-T3lCORSM5iICZkQLOaKhe4rlmr3KWsjxRLPJ-KwRrbheyqlEMOeceVXKr4itnhcrpTCrWiJtWS+1gTHWvM1YI16FsAxfIVhs21-iKXSNGcAaKQA) to be sure that the `doNotMatch` object contains only the needed properties to check at the TypeScript level. You can see it in action in the following screenshot. The goal is to avoid the developer caring about impossible situations (for instance, Neon cannot result in having to deal `doNotMatch.eeLite` because Neon is not related to EE Lite at all).
+
+![doNotMatch object and TypeScript](./do-not-match-ts.png)
+
+Managing this Types at the array level is hard, that's why we prefer to stick for the single feature as of today.
+
+(by @vijayprasanna13) **What about specifying only the required properties in the compatibility object? For instance, to avoid specifying if Neon is enabled or not in EE Lite since it does not make sense.**
+
+Getting all the properties explicit enforces managing them also when we add more Console types/mode and source of info. It's a by-design choice.
+
+(by @lucarestagno) **Why calling it `cliMode` instead of `mode`?**
+
+The current APIs are temporary but this is a good point to fix in the final implementation.
+
+(by @vijayprasanna13) **What about vanilla JS APIs?**
+
+See the above "I see Rect APIs, but I do not see pure JavaScript APIs, why?" FAQ.
+
+(by @lucarestagno) **What about feature flags?**
+
+They will be managed too in the final implementation.
+
 
 ## How can I play with the demo?
 
